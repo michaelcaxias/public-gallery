@@ -2,7 +2,11 @@ import React, { useContext } from 'react';
 import { BsFillImageFill } from 'react-icons/bs';
 import { TContext, FormContext } from '../context/Provider';
 
-export default function ImageUploader() {
+type IimageProps = {
+  imageRef: React.RefObject<HTMLInputElement>,
+}
+
+export default function ImageUploader({ imageRef }: IimageProps) {
   const { image, setImage }: TContext = useContext(FormContext);
 
   const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +36,7 @@ export default function ImageUploader() {
             </p>
           </div>
           <input
+            ref={imageRef}
             type="file"
             onChange={handleImage}
             className="hidden"
