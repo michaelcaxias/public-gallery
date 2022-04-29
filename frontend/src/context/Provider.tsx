@@ -1,18 +1,24 @@
+/* eslint-disable no-unused-vars */
 import React, { createContext, useState, useMemo } from 'react';
 
 type FormContextProps = {
   children: React.ReactNode,
 }
 
-export const FormContext = createContext({});
+export type TContext = {
+  image: string,
+  setImage: (image: string) => void,
+}
+
+export const FormContext = createContext({} as TContext);
 
 export function Provider({ children }: FormContextProps) {
-  const [stateA, setStateA] = useState('initialStateA');
+  const [image, setImage] = useState('');
 
   const context = useMemo(() => ({
-    stateA,
-    setStateA,
-  }), []);
+    image,
+    setImage,
+  }), [image]);
 
   return (
     <FormContext.Provider value={context}>
