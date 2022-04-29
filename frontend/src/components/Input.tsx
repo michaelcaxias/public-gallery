@@ -2,7 +2,7 @@ type InputProps = {
   title: string,
 }
 
-export default function Button({ title }: InputProps) {
+export default function Input({ title }: InputProps) {
   return (
     <div className="grid grid-cols-1 mt-5 mx-7">
       <label
