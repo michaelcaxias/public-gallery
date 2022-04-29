@@ -18,6 +18,7 @@ export default function ImageUploader({ imageRef }: IimageProps) {
   return (
     <div className="grid grid-cols-1 mt-5 mx-7">
       <label
+        htmlFor="image"
         className="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1"
       >
         Envie uma imagem
@@ -38,6 +39,7 @@ export default function ImageUploader({ imageRef }: IimageProps) {
           <input
             ref={imageRef}
             type="file"
+            id="image"
             onChange={handleImage}
             className="hidden"
             accept="image/png, image/jpeg"
