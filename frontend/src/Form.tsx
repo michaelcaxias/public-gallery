@@ -9,29 +9,26 @@ export default function Form() {
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      if (imagRef.current?.files) {
-        console.log(imagRef.current.files[0]);
+      const [file] = imagRef.current?.files || [];
+      const formData = new FormData();
 
-        const formData = new FormData();
+      formData.append(
+        'image',
+        file,
+        file.name,
+      );
 
-        formData.append(
-          'image',
-          imagRef.current.files[0],
-          imagRef.current.files[0].name,
-        );
+      const imageFetch = await fetch('https://api.imgur.com/3/image/', {
+        method: 'POST',
+        headers: {
+          Authorization: 'Client-ID 7bc9ce1239b39ad',
+          Accept: 'application/json',
+        },
+        body: formData,
+      });
 
-        const imageFetch = await fetch('https://api.imgur.com/3/image/', {
-          method: 'POST',
-          headers: {
-            Authorization: 'Client-ID 7bc9ce1239b39ad',
-            Accept: 'application/json',
-          },
-          body: formData,
-        });
-
-        const response = await imageFetch.json();
-        console.log(response);
-      }
+      const response = await imageFetch.json();
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
