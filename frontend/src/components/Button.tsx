@@ -3,14 +3,14 @@ import React from 'react';
 type ButtonProps = {
   children: React.ReactNode,
   type: 'button' | 'submit' | 'reset',
-  styles: string,
+  className: string,
 }
 
-export default function Button({ children, type, styles = '' }: ButtonProps) {
+export default function Button({ children, type, className = '' }: ButtonProps) {
   return (
     <button
       type={type}
-      className={`w-auto rounded-lg shadow-xl font-medium px-4 py-2 ${styles}`}
+      className={`w-auto rounded-lg shadow-xl font-medium px-4 py-2 ${className}`}
     >
       {children}
 
