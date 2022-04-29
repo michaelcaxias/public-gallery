@@ -23,7 +23,7 @@ export default function Form() {
         const imageFetch = await fetch('https://api.imgur.com/3/image/', {
           method: 'POST',
           headers: {
-            Authorization: 'Client-ID 6db47bd7029562d',
+            Authorization: 'Client-ID 7bc9ce1239b39ad',
             Accept: 'application/json',
           },
           body: formData,
