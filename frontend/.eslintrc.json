@@ -37,6 +37,7 @@
     "react/react-in-jsx-scope": "off",
     "no-console": "off",
     "import/extensions": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/button-has-type": "off"
   }
 }

@@ -1,4 +1,12 @@
-export default function Button({ children, type, styles }) {
+import React from 'react';
+
+type ButtonProps = {
+  children: React.ReactNode,
+  type: 'button' | 'submit' | 'reset',
+  styles: string,
+}
+
+export default function Button({ children, type, styles = '' }: ButtonProps) {
   return (
     <button
       type={type}
