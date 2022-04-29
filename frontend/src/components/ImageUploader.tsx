@@ -25,7 +25,7 @@ export default function ImageUploader({ imageRef }: IimageProps) {
       </label>
       <div className="flex items-center justify-center w-full">
         <label
-          className="flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group"
+          className="flex flex-col cursor-pointer border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group"
         >
           <div className="flex flex-col items-center justify-center pt-7">
             <BsFillImageFill className="w-10 h-10 text-purple-400 group-hover:text-purple-600" />
