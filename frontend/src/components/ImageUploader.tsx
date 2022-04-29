@@ -1,6 +1,15 @@
+import React, { useState } from 'react';
 import { BsFillImageFill } from 'react-icons/bs';
 
 export default function ImageUploader() {
+  const [image, setImage] = useState('');
+
+  const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      setImage(event.target.files[0].name);
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 mt-5 mx-7">
       <label
@@ -18,10 +27,16 @@ export default function ImageUploader() {
             <p
               className="lowercase text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider"
             >
-              Selecione uma imagem
+              {image || 'Selecione uma imagem'}
             </p>
           </div>
-          <input type="file" className="hidden" />
+          <input
+            type="file"
+            onChange={handleImage}
+            className="hidden"
+            accept="image/png, image/jpeg"
+            required
+          />
         </label>
       </div>
     </div>
