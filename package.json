@@ -1,0 +1,23 @@
+{
+  "name": "public-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predev": "npm i --prefix ./backend && npm i --prefix ./frontend",
+    "start": "concurrently \"npm run start:backend\" \"npm run start frontend\"",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelcaxias/public-gallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelcaxias/public-gallery/issues"
+  },
+  "homepage": "https://github.com/michaelcaxias/public-gallery#readme"
+}
