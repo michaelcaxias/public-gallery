@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import Input from './components/Input';
-import ImageUploader from './components/ImageUploader';
-import Button from './components/Button';
+import Input from '../components/Input';
+import ImageUploader from '../components/ImageUploader';
+import Button from '../components/Button';
 
 export default function Form() {
   const titleRef = useRef<HTMLInputElement>(null);
