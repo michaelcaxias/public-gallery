@@ -4,7 +4,7 @@ import ImagesServices from '../services/ImagesServices';
 class BookController {
   constructor(private imagesService = new ImagesServices()) {}
 
-  notFound = 'Book not found';
+  notFound = 'Document not found';
 
   internalError = 'Internal server error';
 
@@ -23,7 +23,7 @@ class BookController {
       const book = await this.imagesService.insertImage(req.body);
       return res.status(201).send(book);
     } catch (err: unknown) {
-      return res.status(500).send({ message: this.notFound });
+      return res.status(500).send({ message: this.internalError });
     }
   };
 }
