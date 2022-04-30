@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
 import ImageUploader from '../components/ImageUploader';
 import Button from '../components/Button';
@@ -7,6 +8,8 @@ export default function Form() {
   const titleRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const imagRef = useRef<HTMLInputElement>(null);
+
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,6 +47,8 @@ export default function Form() {
           image: imageURL,
         }),
       });
+
+      navigate('/gallery');
     } catch (error) {
       console.error(error);
     }
