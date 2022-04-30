@@ -4,6 +4,8 @@ import ImageUploader from './components/ImageUploader';
 import Button from './components/Button';
 
 export default function Form() {
+  const titleRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
   const imagRef = useRef<HTMLInputElement>(null);
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,7 +30,20 @@ export default function Form() {
       });
 
       const response = await imageFetch.json();
-      console.log(response);
+      const imageURL = response.data.link || '';
+
+      await fetch('http://0.0.0.0:3001/images', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: titleRef.current?.value,
+          author: nameRef.current?.value,
+          publishedDate: new Date(),
+          image: imageURL,
+        }),
+      });
     } catch (error) {
       console.error(error);
     }
@@ -38,8 +53,8 @@ export default function Form() {
     <div className="flex h-screen bg-gray-200 items-center justify-center">
       <form onSubmit={handleFormSubmit} className="grid bg-white rounded-lg py-5 shadow-xl w-11/12 md:w-9/12 lg:w-1/2 border-purple-700">
         <h1 className="text-gray-600 font-bold md:text-2xl text-xl text-center">Public Gallery</h1>
-        <Input title="Título da Imagem" id="title" />
-        <Input title="Seu nome" id="name" />
+        <Input title="Título da Imagem" id="title" inputRef={titleRef} />
+        <Input title="Seu nome" id="name" inputRef={nameRef} />
         <ImageUploader imageRef={imagRef} />
         <div className="flex items-center justify-center  md:gap-4 gap-2 pt-5 pb-5">
           <Button type="button" className="bg-gray-500 hover:bg-gray-700 text-white">Cancelar</Button>
