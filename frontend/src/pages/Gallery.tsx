@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import StackGrid from 'react-stack-grid';
 import ImageCard from '../components/ImageCard';
+import Modal from '../components/Modal';
+import { FormContext } from '../context/Provider';
 
 export type ImageAPI = {
   _id: string,
@@ -11,6 +13,7 @@ export type ImageAPI = {
 }
 
 export default function Gallery() {
+  const { isOpen } = useContext(FormContext);
   const [images, setImages] = useState<ImageAPI[]>([]);
 
   useEffect(() => {
@@ -28,12 +31,20 @@ export default function Gallery() {
       <div className="bg-white rounded-lg py-5 shadow-xl h-full w-full overflow-y-auto">
         <StackGrid columnWidth={250} className="gap-2">
           {images && images.map(({
-            _id: id, image, title, author,
+            _id: id, image, title, author, publishedDate,
           }) => (
-            <ImageCard key={id} id={id} src={image} title={title} author={author} />
+            <ImageCard
+              key={id}
+              id={id}
+              src={image}
+              title={title}
+              author={author}
+              publishedDate={publishedDate}
+            />
           ))}
         </StackGrid>
       </div>
+      {isOpen && <Modal />}
     </div>
   );
 }
