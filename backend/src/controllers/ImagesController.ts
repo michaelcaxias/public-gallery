@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ImagesServices from '../services/ImagesServices';
 
-class BookController {
+class ImagesController {
   constructor(private imagesService = new ImagesServices()) {}
 
   notFound = 'Document not found';
@@ -10,9 +10,9 @@ class BookController {
 
   public getImages = async (req: Request, res: Response) => {
     try {
-      const books = await this.imagesService.getImages();
+      const images = await this.imagesService.getImages();
 
-      return res.status(200).send(books);
+      return res.status(200).send(images);
     } catch (err: unknown) {
       return res.status(500).send({ message: this.internalError });
     }
@@ -20,12 +20,22 @@ class BookController {
 
   public insertImage = async (req: Request, res: Response) => {
     try {
-      const book = await this.imagesService.insertImage(req.body);
-      return res.status(201).send(book);
+      const images = await this.imagesService.insertImage(req.body);
+      return res.status(201).send(images);
+    } catch (err: unknown) {
+      return res.status(500).send({ message: this.internalError });
+    }
+  };
+
+  public deleteImage = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    try {
+      const images = await this.imagesService.deleteImage(id);
+      return res.status(201).send(images);
     } catch (err: unknown) {
       return res.status(500).send({ message: this.internalError });
     }
   };
 }
 
-export default BookController;
+export default ImagesController;

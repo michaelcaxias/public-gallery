@@ -15,6 +15,11 @@ class ImagesModel {
     const images = await this.imagesModel.insertMany(imageBody);
     return images;
   }
+
+  public async deleteImage(id: string): Promise<IImages> {
+    const images = await this.imagesModel.findOneAndDelete({ _id: id });
+    return images as IImages;
+  }
 }
 
 export default ImagesModel;
