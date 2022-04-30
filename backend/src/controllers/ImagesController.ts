@@ -14,6 +14,9 @@ class ImagesController {
 
       return res.status(200).send(images);
     } catch (err: unknown) {
+      if (err instanceof Error) {
+        return res.status(500).send({ message: err.message });
+      }
       return res.status(500).send({ message: this.internalError });
     }
   };
@@ -23,6 +26,9 @@ class ImagesController {
       const images = await this.imagesService.insertImage(req.body);
       return res.status(201).send(images);
     } catch (err: unknown) {
+      if (err instanceof Error) {
+        return res.status(500).send({ message: err.message });
+      }
       return res.status(500).send({ message: this.internalError });
     }
   };
@@ -33,6 +39,9 @@ class ImagesController {
       const images = await this.imagesService.deleteImage(id);
       return res.status(201).send(images);
     } catch (err: unknown) {
+      if (err instanceof Error) {
+        return res.status(500).send({ message: err.message });
+      }
       return res.status(500).send({ message: this.internalError });
     }
   };

@@ -8,10 +8,26 @@ export interface IImages {
 }
 
 export const imagesScheme = new Schema<IImages>({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  publishedDate: { type: String, required: false },
-  image: { type: String, required: false },
+  title: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  author: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  publishedDate: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  image: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 }, {
   versionKey: false,
 });
