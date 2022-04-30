@@ -4,13 +4,14 @@ import {
   Route,
 } from 'react-router-dom';
 import Form from './pages/Form';
+import Gallery from './pages/Gallery';
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Form />} />
-        <Route path="/gallery" element={<h1>Gallery</h1>} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </BrowserRouter>
   );
