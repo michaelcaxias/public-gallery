@@ -27,8 +27,10 @@ export default function Gallery() {
       <h1 className="text-gray-600 font-bold md:text-2xl text-xl text-center">Gallery</h1>
       <div className="bg-white rounded-lg py-5 shadow-xl h-full w-full overflow-y-auto">
         <StackGrid columnWidth={250} className="gap-2">
-          {images && images.map(({ _id: id, image, title }) => (
-            <ImageCard key={id} id={id} src={image} title={title} />
+          {images && images.map(({
+            _id: id, image, title, author,
+          }) => (
+            <ImageCard key={id} id={id} src={image} title={title} author={author} />
           ))}
         </StackGrid>
       </div>
