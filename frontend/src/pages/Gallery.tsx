@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import StackGrid from 'react-stack-grid';
 import ImageCard from '../components/ImageCard';
 
-type ImageAPI = {
+export type ImageAPI = {
   _id: string,
   title: string,
   author: string,
