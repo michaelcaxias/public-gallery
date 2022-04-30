@@ -33,7 +33,7 @@ export function Provider({ children }: FormContextProps) {
     handleClose,
     modalData,
     setModalData,
-  }), []);
+  }), [modalData, isOpen]);
 
   return (
     <FormContext.Provider value={context}>
