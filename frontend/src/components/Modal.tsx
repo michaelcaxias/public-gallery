@@ -21,9 +21,9 @@ export default function Modal() {
       )}
       role="button"
       tabIndex={0}
-      className="modal flex items-center justify-center absolute z-10 w-full h-full backdrop-blur-sm"
+      className="modal flex items-center justify-center absolute z-10 w-full h-full bg-purple-900/10 backdrop-blur-sm "
     >
-      <img className="max-w-[90%] max-h-[90%]" src={modalData.image} alt="imgur" />
+      <img className="max-w-[90%] max-h-[90%] min-w-[20%]" src={modalData.image} alt="imgur" />
     </div>
   );
 }
