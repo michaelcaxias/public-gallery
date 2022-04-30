@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import StackGrid from 'react-stack-grid';
 import ImageCard from '../components/ImageCard';
 
 type ImageAPI = {
@@ -24,10 +25,12 @@ export default function Gallery() {
   return (
     <div className="flex flex-col h-screen bg-gray-200 items-center justify-center p-3 gap-4">
       <h1 className="text-gray-600 font-bold md:text-2xl text-xl text-center">Gallery</h1>
-      <div className="grid auto-cols-max max-w-7xl gap-2 bg-white rounded-lg py-5 px-3 shadow-xl h-full w-full overflow-y-auto">
-        {images && images.map(({ _id: id, image, title }) => (
-          <ImageCard id={id} src={image} alt={title} />
-        ))}
+      <div className="bg-white rounded-lg py-5 px-3 shadow-xl h-full w-full overflow-y-auto">
+        <StackGrid columnWidth={250}>
+          {images && images.map(({ _id: id, image, title }) => (
+            <ImageCard key={id} id={id} src={image} alt={title} />
+          ))}
+        </StackGrid>
       </div>
     </div>
   );

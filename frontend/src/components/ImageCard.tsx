@@ -6,6 +6,8 @@ type ImageCardProps = {
 
 export default function ImageCard({ src, alt, id }: ImageCardProps) {
   return (
-    <img id={id} className="rounded max-w-xs max-h-fit" src={src} alt={alt} />
+    <div>
+      <img id={id} className="rounded" src={src} alt={alt} />
+    </div>
   );
 }
