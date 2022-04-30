@@ -6,8 +6,8 @@ type ImageCardProps = {
 
 export default function ImageCard({ src, alt, id }: ImageCardProps) {
   return (
-    <div>
-      <img id={id} className="rounded" src={src} alt={alt} />
+    <div className="cursor-pointer">
+      <img id={id} className="rounded shadow-xl" src={src} alt={alt} draggable={false} />
     </div>
   );
 }
