@@ -1,13 +1,11 @@
-// src/routes.ts
-
 import { Router } from 'express';
 
-import BookController from './controllers/BookController';
+import ImagesController from './controllers/ImagesController';
 
-const bookController = new BookController();
+const imagesController = new ImagesController();
 const routes = Router();
 
-routes.get('/books', bookController.getBooks);
-routes.post('/books', bookController.create);
+routes.get('/images', imagesController.getImages);
+routes.post('/images', imagesController.insertImage);
 
 export default routes;
