@@ -38,6 +38,7 @@
     "no-console": "off",
     "import/extensions": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   }
 }

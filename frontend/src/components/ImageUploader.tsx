@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { BsFillImageFill } from 'react-icons/bs';
-import { TContext, FormContext } from '../context/Provider';
 
 type IimageProps = {
   imageRef: React.RefObject<HTMLInputElement>,
 }
 
 export default function ImageUploader({ imageRef }: IimageProps) {
-  const { image, setImage }: TContext = useContext(FormContext);
+  const [image, setImage] = useState('');
 
   const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
