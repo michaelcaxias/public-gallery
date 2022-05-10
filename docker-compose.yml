@@ -1,45 +1,39 @@
+version: "3.8"
+
 services:
   frontend:
-    build: frontend
-    ports:
-      - 3000:3000
-    stdin_open: true
-    volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
     container_name: frontend
+    ports:
+      - "3000:3000"
+    build: frontend
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/home/app
+      - /home/app/node_modules
     restart: always
-    networks:
-      - react-express
     depends_on:
       - backend
-
   backend:
     container_name: backend
+    ports:
+      - "3001:3000"
     restart: always
     build: backend
-    ports:
-      - 3001:3001
     volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./backend:/home/app
+      - /home/app/node_modules
     depends_on:
       - mongo
-    networks:
-      - express-mongo
-      - react-express
-    expose:
-      - 3001
   mongo:
-    container_name: mongo
+    container_name: mongo_public_api
     restart: always
-    image: mongo:4.2.0
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
     volumes:
       - ./data:/data/db
-    networks:
-      - express-mongo
-    expose:
-      - 27017
-networks:
-  react-express:
-  express-mongo:
+
+volumes:
+  data:
+    name: mongo_db_data
