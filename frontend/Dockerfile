@@ -1,13 +1,14 @@
-FROM node:lts-buster
+FROM node:16-alpine as frontend
 
-WORKDIR /usr/src/app
+WORKDIR /home/app/
 
-COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
+COPY package.json /home/app/package.json
+
+RUN sudo chmod -R 777 /home/app
 
 RUN npm i
 
-COPY . /usr/src/app
+COPY . /home/app
 
 EXPOSE 3000
 

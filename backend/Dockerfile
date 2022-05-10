@@ -1,12 +1,14 @@
-FROM node:lts-buster-slim
+FROM node:16-alpine as backend
 
-WORKDIR /usr/src/app
+WORKDIR /home/app/
 
-COPY package.json /usr/src/app/package.json
+COPY package.json /home/app/package.json
+
+RUN sudo chmod -R 777 /home/app
 
 RUN npm i
 
-COPY . /usr/src/app
+COPY . /home/app
 
 EXPOSE 3001
 
