@@ -18,7 +18,8 @@ export default function Gallery() {
 
   useEffect(() => {
     const getImages = async () => {
-      const response = await fetch('http://0.0.0.0:3001/images');
+      const api = import.meta.env.VITE_SERVER || 'http://0.0.0.0:3001/images';
+      const response = await fetch(api);
       const json = await response.json() as ImageAPI[];
       setImages(json);
     };
