@@ -7,6 +7,21 @@ Aplicação Fullstack de um site de upload de imagens com React, Node, MongoDB e
 
 ## 💻 Como iniciar
 
+
+### 🐳 Pelo Docker
+
+> 🚨 É necessário ter o Docker & Compose.
+
+1. Faça o clone do projeto
+2. Iniciando o projeto:
+```shell
+  docker-compose up
+```
+
+### 🚀 Localmente
+
+> 🚨 É necessário ter o node e mongo.
+
 1. Faça o clone do projeto
 2. Instale as dependências
 ```shell
@@ -28,6 +43,7 @@ npm run start:frontend
 [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindui.com/)
 [![NODE](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![MONGO](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
+[![DOCKER](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/)
 
 
 ### Contato
