@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGO_URL = 'mongodb://mongo:27017/public-gallery';
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://mongo:27017/public-gallery';
 
 const connection = (
   mongoDatabaseURI = MONGO_URL,

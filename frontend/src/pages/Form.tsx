@@ -34,8 +34,9 @@ export default function Form() {
 
       const response = await imageFetch.json();
       const imageURL = response.data.link || '';
+      const api = process.env.REACT_APP_SERVER || 'http://0.0.0.0:3001/images';
 
-      await fetch('http://0.0.0.0:3001/images', {
+      await fetch(api, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
