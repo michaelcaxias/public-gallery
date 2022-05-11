@@ -1,16 +1,14 @@
-FROM node:16-alpine as frontend
+FROM node:lts-buster as frontend
 
 WORKDIR /home/app/
 
 COPY package.json /home/app/package.json
 
-RUN chmod -R 777 /home/app
-
-RUN npm i
+RUN yarn install
 
 COPY . /home/app
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
 
