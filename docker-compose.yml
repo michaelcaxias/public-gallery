@@ -2,38 +2,48 @@ version: "3.8"
 
 services:
   frontend:
+    image: public-gallery_frontend
     container_name: frontend
     ports:
       - "3000:3000"
     build: frontend
     stdin_open: true
-    tty: true
     volumes:
       - ./frontend:/home/app
       - /home/app/node_modules
-    restart: always
     depends_on:
       - backend
+    networks:
+      - gallery_app
+
   backend:
+    image: public-gallery_backend
     container_name: backend
     ports:
-      - "3001:3000"
-    restart: always
+      - "3001:3001"
     build: backend
     volumes:
       - ./backend:/home/app
       - /home/app/node_modules
     depends_on:
       - mongo
+    networks:
+      - gallery_app
+
   mongo:
-    container_name: mongo_public_api
-    restart: always
+    container_name: mongo
     image: mongo:5.0
     ports:
       - "27017:27017"
     volumes:
       - ./data:/data/db
+    networks:
+      - gallery_app
 
 volumes:
   data:
-    name: mongo_db_data
+    name: mongodb_data
+
+networks:
+  gallery_app:
+    driver: bridge
