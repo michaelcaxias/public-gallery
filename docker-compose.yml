@@ -8,9 +8,6 @@ services:
       - "3000:3000"
     build: frontend
     stdin_open: true
-    command: sh -c "yarn install && yarn start"
-    working_dir:
-      - /home/app/
     volumes:
       - ./frontend:/home/app
       - /home/app/node_modules
