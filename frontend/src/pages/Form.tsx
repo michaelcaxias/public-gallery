@@ -34,7 +34,7 @@ export default function Form() {
 
       const response = await imageFetch.json();
       const imageURL = response.data.link || '';
-      const api = process.env.VITE_SERVER || 'http://0.0.0.0:3001/images';
+      const api = import.meta.env.VITE_SERVER || 'http://0.0.0.0:3001/images';
 
       await fetch(api, {
         method: 'POST',
