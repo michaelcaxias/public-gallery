@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 import Input from '../components/Input';
 import ImageUploader from '../components/ImageUploader';
 import Button from '../components/Button';
@@ -76,10 +77,13 @@ export default function Form() {
         <div className="flex items-center justify-center  md:gap-4 gap-2 pt-5 pb-5">
           <Button
             type="button"
+            onClick={() => navigate('/gallery')}
             className="bg-gray-500 hover:bg-gray-700 text-white"
           >
-            Cancelar
-
+            <span className="flex items-center gap-2">
+              Ir a Galeria
+              <AiOutlineArrowRight />
+            </span>
           </Button>
           <Button
             type="submit"
