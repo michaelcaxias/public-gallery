@@ -4,7 +4,7 @@ WORKDIR /home/app/
 
 COPY package.json /home/app/package.json
 
-RUN sudo chmod -R 777 /home/app
+RUN chmod -R 777 /home/app
 
 RUN npm i
 
