@@ -15,7 +15,6 @@ export default function ImageCard({
   const { setModalData, handleOpen } = useContext(FormContext);
 
   const openModal = () => {
-    console.log('cheguei aqui?');
     setModalData({
       _id: id,
       image: src,
@@ -30,12 +29,13 @@ export default function ImageCard({
   return (
     <div
       onClick={() => openModal()}
+      onKeyUp={(event) => event.key === 'Enter' && openModal()}
       role="button"
       tabIndex={0}
       className="flex flex-col cursor-pointer items-center bg-purple-200 py-2 rounded-lg"
     >
+      <h1 className="capitalize">{`${title}`}</h1>
       <img id={id} className="rounded shadow-xl" src={src} alt={title} draggable={false} />
-      <p>{`${title} - ${author}`}</p>
     </div>
   );
 }
