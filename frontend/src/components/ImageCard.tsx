@@ -32,10 +32,10 @@ export default function ImageCard({
       onKeyUp={(event) => event.key === 'Enter' && openModal()}
       role="button"
       tabIndex={0}
-      className="flex flex-col cursor-pointer items-center bg-purple-200 py-2 rounded-lg"
+      className="flex flex-col cursor-pointer items-center bg-purple-200 py-2 rounded-lg shadow-lg"
     >
-      <h1 className="capitalize">{`${title}`}</h1>
-      <img id={id} className="rounded shadow-xl" src={src} alt={title} draggable={false} />
+      <h1 className="capitalize font-medium py-1">{`${title}`}</h1>
+      <img id={id} className="rounded" src={src} alt={title} draggable={false} />
     </div>
   );
 }
