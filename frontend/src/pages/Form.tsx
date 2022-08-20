@@ -78,6 +78,7 @@ export default function Form() {
           <Button
             type="button"
             onClick={() => navigate('/gallery')}
+            testId="gallery"
             className="bg-gray-500 hover:bg-gray-700 text-white"
           >
             <span className="flex items-center gap-2">
@@ -88,6 +89,7 @@ export default function Form() {
           <Button
             type="submit"
             className="bg-purple-500 hover:bg-purple-700 text-white"
+            testId="publish"
           >
             Publicar
 
