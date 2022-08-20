@@ -5,16 +5,18 @@ type ButtonProps = {
   type: 'button' | 'submit' | 'reset',
   className: string,
   onClick?: () => void,
+  testId?: string,
 }
 
 export default function Button({
-  children, type, className = '',
+  children, type, className = '', testId,
   onClick,
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
+      data-testid={testId}
       className={`w-auto rounded-lg shadow-xl font-medium px-4 py-2 ${className}`}
     >
       {children}
@@ -24,5 +26,6 @@ export default function Button({
 }
 
 Button.defaultProps = {
-  onClick: () => {},
+  onClick: () => { },
+  testId: '',
 };

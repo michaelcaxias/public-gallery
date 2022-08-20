@@ -88,6 +88,7 @@ export default function Form() {
           <Button
             type="submit"
             className="bg-purple-500 hover:bg-purple-700 text-white"
+            testId="publish"
           >
             Publicar
 

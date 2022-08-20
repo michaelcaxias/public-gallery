@@ -39,6 +39,7 @@ export default function ImageUploader({ imageRef }: IimageProps) {
             ref={imageRef}
             type="file"
             id="image"
+            data-testid="image"
             onChange={handleImage}
             className="hidden"
             accept="image/png, image/jpeg"
