@@ -3,7 +3,7 @@ import React from 'react';
 type InputProps = {
   title: string,
   id: string,
-  inputRef: React.RefObject<HTMLInputElement>,
+  inputRef?: React.RefObject<HTMLInputElement>,
 }
 
 export default function Input({ title, id, inputRef }: InputProps) {
@@ -27,3 +27,7 @@ export default function Input({ title, id, inputRef }: InputProps) {
     </div>
   );
 }
+
+Input.defaultProps = {
+  inputRef: React.createRef(),
+};
