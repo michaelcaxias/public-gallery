@@ -6,7 +6,8 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:cypress/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -18,7 +19,8 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "cypress"
   ],
   "settings": {
     "import/resolver": {
@@ -39,6 +41,7 @@
     "import/extensions": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "react/button-has-type": "off",
-    "jsx-a11y/click-events-have-key-events": "off"
+    "jsx-a11y/click-events-have-key-events": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }
